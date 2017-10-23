@@ -43,7 +43,7 @@
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
-        <widget class="QLineEdit" name="lineEdit"/>
+        <widget class="QLineEdit" name="lineEdit_engineExecutableFilepath"/>
        </item>
        <item>
         <widget class="QPushButton" name="pushButton_engineExecutableFilepath">

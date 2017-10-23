@@ -1,5 +1,5 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef __MAINWINDOW_H
+#define __MAINWINDOW_H
 
 #include <QWidget>
 
@@ -16,8 +16,11 @@ public:
     explicit MainWindow(QWidget *a_parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void on_pushButton_engineExecutableFilepath_clicked();
+
 private:
     Ui::MainWindow *m_ui;
 };
 
-#endif // MAINWINDOW_H
+#endif // __MAINWINDOW_H
