@@ -1,8 +1,8 @@
 #include <QCoreApplication>
 
-int main(int argc, char *argv[])
+int main(int a_argc, char *a_argv[])
 {
-    QCoreApplication a(argc, argv);
+    QCoreApplication a(a_argc, a_argv);
 
     return a.exec();
 }
