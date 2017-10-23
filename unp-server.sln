@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "unp-server", "unp-server\unp-server.vcxproj", "{AE1752FB-1BA4-3419-8340-A9422D466AB5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE1752FB-1BA4-3419-8340-A9422D466AB5}.Debug|x64.ActiveCfg = Debug|x64
+		{AE1752FB-1BA4-3419-8340-A9422D466AB5}.Debug|x64.Build.0 = Debug|x64
+		{AE1752FB-1BA4-3419-8340-A9422D466AB5}.Release|x64.ActiveCfg = Release|x64
+		{AE1752FB-1BA4-3419-8340-A9422D466AB5}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {629F5035-AEFE-43F5-8C31-047E787E99AC}
+	EndGlobalSection
+EndGlobal
