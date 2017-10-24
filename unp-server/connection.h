@@ -2,6 +2,10 @@
 #define __CONNECTION_H
 
 #include <QObject>
+#include <QTcpSocket>
+#include <QProcess>
+
+class Server;
 
 class Connection: public QObject
 {
@@ -9,7 +13,27 @@ class Connection: public QObject
 
 public:
     explicit Connection(QObject *a_parent = nullptr);
-    ~Connection();
+    virtual ~Connection();
+
+    void setSocket(QTcpSocket *a) { m_socket = a; }
+    void start();
+
+signals:
+    void disconnected();
+
+private slots:
+    void socketOnReadyRead();
+    void socketOnDisconnected();
+    void socketOnError(QAbstractSocket::SocketError a);
+
+    void processOnStarted();
+    void processOnReadyRead();
+    void processFinished(int a_exitCode, QProcess::ExitStatus a_exitStatus);
+    void processOnErrorOccurred(QProcess::ProcessError a);
+
+private:
+    QTcpSocket *m_socket = nullptr;
+    QProcess m_process;
 };
 
 #endif // __CONNECTION_H

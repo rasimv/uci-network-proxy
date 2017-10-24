@@ -14,8 +14,32 @@ MainWindow::~MainWindow()
     delete m_ui;
 }
 
+void MainWindow::setServer(Server *a)
+{
+    m_server = a;
+    connect(m_server, SIGNAL(statusMessage(const QString &)), SLOT(onStatusMessage(const QString &)));
+}
+
 void MainWindow::on_pushButton_engineExecutableFilepath_clicked()
 {
     const QString e(QFileDialog::getOpenFileName(this, windowTitle() + " - select engine executable"));
     m_ui->lineEdit_engineExecutableFilepath->setText(e);
+}
+
+void MainWindow::on_pushButton_start_clicked()
+{
+    Q_ASSERT(m_server != nullptr);
+    m_server->setEngineExecutableFilepath(m_ui->lineEdit_engineExecutableFilepath->text());
+    m_server->setAddressToListen(m_ui->lineEdit_addressToListen->text());
+    m_server->start();
+}
+
+void MainWindow::on_pushButton_stop_clicked()
+{
+    m_server->stop();
+}
+
+void MainWindow::onStatusMessage(const QString &a)
+{
+    m_ui->plainTextEdit_log->setPlainText(a);
 }
