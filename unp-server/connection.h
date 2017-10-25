@@ -33,7 +33,7 @@ private slots:
 
 private:
     QTcpSocket *m_socket = nullptr;
-    QProcess m_process;
+    QProcess m_process = nullptr;
     QByteArray m_buf;
 };
 
