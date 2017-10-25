@@ -55,5 +55,5 @@ void Client::socketOnDisconnected()
 
 void Client::socketOnError(QAbstractSocket::SocketError a)
 {
-    emit error();
+    QTimer::singleShot(0, this, [&]() { emit error(); });
 }
