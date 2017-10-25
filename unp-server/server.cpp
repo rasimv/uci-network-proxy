@@ -44,11 +44,18 @@ void Server::onAcceptError(QAbstractSocket::SocketError a)
 
 void Server::onNewConnection()
 {
-    for (auto *x = m_server->nextPendingConnection(); x != nullptr; x = m_server->nextPendingConnection())
+    for (auto x = m_server->nextPendingConnection(); x != nullptr; x = m_server->nextPendingConnection())
     {
         auto q(std::make_unique<Connection>(this));
+        connect(q.get(), SIGNAL(disconnected()), SLOT(onDisconnected()));
         q->setSocket(x);
         m_cons.insert(q.get());
-        q.release();
+        q.release()->start();
     }
+}
+
+void Server::onDisconnected()
+{
+    m_cons.remove(static_cast<Connection *>(sender()));
+    delete sender();
 }

@@ -15,7 +15,7 @@ public:
     explicit Connection(QObject *a_parent = nullptr);
     virtual ~Connection();
 
-    void setSocket(QTcpSocket *a) { m_socket = a; }
+    void setSocket(QTcpSocket *a);
     void start();
 
 signals:
@@ -34,6 +34,7 @@ private slots:
 private:
     QTcpSocket *m_socket = nullptr;
     QProcess m_process;
+    QByteArray m_buf;
 };
 
 #endif // __CONNECTION_H

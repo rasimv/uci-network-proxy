@@ -43,7 +43,11 @@
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
-        <widget class="QLineEdit" name="lineEdit_engineExecutableFilepath"/>
+        <widget class="QLineEdit" name="lineEdit_engineExecutableFilepath">
+         <property name="text">
+          <string>c:\windows\notepad.exe</string>
+         </property>
+        </widget>
        </item>
        <item>
         <widget class="QPushButton" name="pushButton_engineExecutableFilepath">

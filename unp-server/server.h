@@ -27,6 +27,7 @@ signals:
 private slots:
     void onAcceptError(QAbstractSocket::SocketError a);
     void onNewConnection();
+    void onDisconnected();
 
 private:
     QString m_engineExecutableFilepath, m_addressToListen;
