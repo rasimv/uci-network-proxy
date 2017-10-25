@@ -33,7 +33,6 @@ void Server::start()
 
 void Server::stop()
 {
-    emit statusMessage(QString("%1").arg(m_cons.size()));
     const size_t q = m_cons.size();
     if (m_server == nullptr) return;
     for (auto q : m_cons) delete q;

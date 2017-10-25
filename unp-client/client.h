@@ -3,6 +3,7 @@
 
 #include <QFile>
 #include <QTcpSocket>
+#include "stdinreader.h"
 
 class Client : public QObject
 {
@@ -20,7 +21,7 @@ signals:
     void error();
 
 private slots:
-    void stdinOnReadyRead();
+    void stdinOnNewData(const QByteArray &a);
 
     void socketOnConnected();
     void socketOnReadyRead();
@@ -29,7 +30,8 @@ private slots:
 
 private:
     QString m_address;
-    QFile m_stdin, m_stdout;
+    StdinReader m_stdin;
+    QFile m_stdout;
     QTcpSocket m_con;
     QByteArray m_buf;
 };

@@ -137,6 +137,7 @@
   <ItemGroup>
     <ClCompile Include="client.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="stdinreader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="client.h">
@@ -148,6 +149,16 @@
       <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">C:\qt\592\5.9.2\msvc2017_64\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -DWIN64 -DQT_DEPRECATED_WARNINGS -DQT_NETWORK_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include debug/moc_predefs.h -IC:/qt/592/5.9.2/msvc2017_64/mkspecs/win32-msvc -ID:/cppdev/57/uci-network-proxy/unp-client -IC:/qt/592/5.9.2/msvc2017_64/include -IC:/qt/592/5.9.2/msvc2017_64/include/QtNetwork -IC:/qt/592/5.9.2/msvc2017_64/include/QtCore -I&quot;C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\ATLMFC\include&quot; -I&quot;C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\winrt&quot; client.h -o debug\moc_client.cpp</Command>
       <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC client.h</Message>
       <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_client.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="stdinreader.h">
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">stdinreader.h;release\moc_predefs.h;C:\qt\592\5.9.2\msvc2017_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">C:\qt\592\5.9.2\msvc2017_64\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -DWIN64 -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_NETWORK_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include release/moc_predefs.h -IC:/qt/592/5.9.2/msvc2017_64/mkspecs/win32-msvc -ID:/cppdev/57/uci-network-proxy/unp-client -IC:/qt/592/5.9.2/msvc2017_64/include -IC:/qt/592/5.9.2/msvc2017_64/include/QtNetwork -IC:/qt/592/5.9.2/msvc2017_64/include/QtCore -I&quot;C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\ATLMFC\include&quot; -I&quot;C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\winrt&quot; stdinreader.h -o release\moc_stdinreader.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">MOC stdinreader.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_stdinreader.cpp;%(Outputs)</Outputs>
+      <AdditionalInputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">stdinreader.h;debug\moc_predefs.h;C:\qt\592\5.9.2\msvc2017_64\bin\moc.exe;%(AdditionalInputs)</AdditionalInputs>
+      <Command Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">C:\qt\592\5.9.2\msvc2017_64\bin\moc.exe  -DUNICODE -D_UNICODE -DWIN32 -DWIN64 -DQT_DEPRECATED_WARNINGS -DQT_NETWORK_LIB -DQT_CORE_LIB --compiler-flavor=msvc --include debug/moc_predefs.h -IC:/qt/592/5.9.2/msvc2017_64/mkspecs/win32-msvc -ID:/cppdev/57/uci-network-proxy/unp-client -IC:/qt/592/5.9.2/msvc2017_64/include -IC:/qt/592/5.9.2/msvc2017_64/include/QtNetwork -IC:/qt/592/5.9.2/msvc2017_64/include/QtCore -I&quot;C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\ATLMFC\include&quot; -I&quot;C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.11.25503\include&quot; -I&quot;C:\Program Files (x86)\Windows Kits\NETFXSDK\4.6.1\include\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\ucrt&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\shared&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\um&quot; -I&quot;C:\Program Files (x86)\Windows Kits\10\include\10.0.16299.0\winrt&quot; stdinreader.h -o debug\moc_stdinreader.cpp</Command>
+      <Message Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">MOC stdinreader.h</Message>
+      <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">debug\moc_stdinreader.cpp;%(Outputs)</Outputs>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
@@ -173,6 +184,12 @@
       <Outputs Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">release\moc_predefs.h;%(Outputs)</Outputs>
       <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
     </CustomBuild>
+    <ClCompile Include="debug\moc_stdinreader.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Release|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="release\moc_stdinreader.cpp">
+      <ExcludedFromBuild Condition="&apos;$(Configuration)|$(Platform)&apos;==&apos;Debug|x64&apos;">true</ExcludedFromBuild>
+    </ClCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

@@ -33,9 +33,15 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="stdinreader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="client.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="stdinreader.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>
@@ -52,5 +58,11 @@
     <CustomBuild Include="release\moc_predefs.h.cbt">
       <Filter>Generated Files</Filter>
     </CustomBuild>
+    <ClCompile Include="debug\moc_stdinreader.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="release\moc_stdinreader.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

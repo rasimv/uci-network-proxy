@@ -3,19 +3,20 @@
 #include <QUrl>
 #include <QHostAddress>
 #include <QTimer>
+#include <iostream>
 
 Client::Client(QObject *a_parent) :
     QObject(a_parent)
-{}
+{
+    m_stdout.open(stdout, QIODevice::WriteOnly);
+}
 
 Client::~Client()
 {}
 
 void Client::start()
 {
-    connect(&m_stdin, SIGNAL(readyRead()), SLOT(stdinOnReadyRead()));
-    m_stdin.open(stdin, QIODevice::ReadOnly);
-    m_stdout.open(stdout, QIODevice::WriteOnly);
+    connect(&m_stdin, SIGNAL(newData(const QByteArray &)), SLOT(stdinOnNewData(const QByteArray &)));
 
     connect(&m_con, SIGNAL(connected()), SLOT(socketOnConnected()));
     connect(&m_con, SIGNAL(readyRead()), SLOT(socketOnReadyRead()));
@@ -30,11 +31,12 @@ void Client::start()
     m_con.connectToHost(l_hostAddr, l_asUrl.port());
 }
 
-void Client::stdinOnReadyRead()
+void Client::stdinOnNewData(const QByteArray &a)
 {
-    m_buf += m_stdin.readAll();
+    m_buf += a;
     if (m_con.state() != QAbstractSocket::ConnectedState) return;
     m_con.write(m_buf); m_buf.clear();
+    m_con.flush();
 }
 
 void Client::socketOnConnected()
@@ -46,6 +48,7 @@ void Client::socketOnConnected()
 void Client::socketOnReadyRead()
 {
     m_stdout.write(m_con.readAll());
+    m_stdout.flush();
 }
 
 void Client::socketOnDisconnected()

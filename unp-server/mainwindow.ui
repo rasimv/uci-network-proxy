@@ -45,7 +45,7 @@
        <item>
         <widget class="QLineEdit" name="lineEdit_engineExecutableFilepath">
          <property name="text">
-          <string>c:\windows\notepad.exe</string>
+          <string>C:\Users\rasim\deploy\stockfish-8-win\Windows\stockfish_8_x64.exe</string>
          </property>
         </widget>
        </item>
