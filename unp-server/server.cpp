@@ -26,9 +26,9 @@ void Server::start()
     connect(m_server, SIGNAL(newConnection()), SLOT(onNewConnection()));
 
     if (m_server->listen(l_hostAddr, l_asUrl.port()))
-        emit statusMessage(QString("started: ") + l_messageAddress);
+        emit statusMessage(QString("Started: ") + l_messageAddress);
     else
-        emit statusMessage(QString("failed: ") + l_messageAddress);
+        emit statusMessage(QString("Failed: ") + l_messageAddress);
 }
 
 void Server::stop()
@@ -52,6 +52,7 @@ void Server::onNewConnection()
         q->setSocket(x);
         m_cons.insert(q.get());
         q.release()->start();
+        emit statusMessage(QString("Incoming: %1:%2").arg(x->peerAddress().toString()).arg(x->peerPort()));
     }
 }
 
