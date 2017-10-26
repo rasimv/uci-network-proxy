@@ -19,6 +19,7 @@ public:
 signals:
     void disconnected();
     void error();
+    void log(const QString &a_message);
 
 private slots:
     void stdinOnNewData(const QByteArray &a);

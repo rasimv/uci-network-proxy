@@ -56,7 +56,8 @@ void Client::socketOnDisconnected()
     QTimer::singleShot(0, this, [&]() { emit disconnected(); });
 }
 
-void Client::socketOnError(QAbstractSocket::SocketError a)
+void Client::socketOnError(QAbstractSocket::SocketError)
 {
+    emit log(m_con.errorString());
     QTimer::singleShot(0, this, [&]() { emit error(); });
 }

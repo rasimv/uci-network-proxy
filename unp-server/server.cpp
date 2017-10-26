@@ -40,7 +40,7 @@ void Server::stop()
     delete m_server; m_server = nullptr;
 }
 
-void Server::onAcceptError(QAbstractSocket::SocketError a)
+void Server::onAcceptError(QAbstractSocket::SocketError)
 {}
 
 void Server::onNewConnection()

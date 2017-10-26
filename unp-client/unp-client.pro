@@ -17,8 +17,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp \
             client.cpp \
-            stdinreader.cpp
+            stdinreader.cpp \
+            settings.cpp \
+            logger.cpp
 
 HEADERS += \
             client.h \
-            stdinreader.h
+            stdinreader.h \
+            logger.h

@@ -56,7 +56,7 @@ void Connection::socketOnDisconnected()
     emit disconnected();
 }
 
-void  Connection::socketOnError(QAbstractSocket::SocketError a)
+void  Connection::socketOnError(QAbstractSocket::SocketError)
 {}
 
 void Connection::processOnStarted()
@@ -72,11 +72,11 @@ void Connection::processOnReadyRead()
     m_socket->write(m_process->readAll()); m_socket->flush();
 }
 
-void Connection::processFinished(int a_exitCode, QProcess::ExitStatus a_exitStatus)
+void Connection::processFinished(int, QProcess::ExitStatus)
 {
     Q_ASSERT(m_socket != nullptr);
     m_socket->close();
 }
 
-void Connection::processOnErrorOccurred(QProcess::ProcessError a)
+void Connection::processOnErrorOccurred(QProcess::ProcessError)
 {}

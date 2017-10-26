@@ -41,5 +41,6 @@ void MainWindow::on_pushButton_stop_clicked()
 
 void MainWindow::onStatusMessage(const QString &a)
 {
-    m_ui->plainTextEdit_log->setPlainText(a);
+    const auto t(m_ui->plainTextEdit_log->toPlainText());
+    m_ui->plainTextEdit_log->setPlainText(t + a + "\n");
 }
