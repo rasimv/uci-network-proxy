@@ -12,14 +12,12 @@ class StdinReader : public QObject
     Q_OBJECT
 
     friend class SharedData;
-    typedef void (*CallbackFunc)(StdinReader *a_key, const QByteArray &a);
 
     struct SharedData
     {
-        SharedData(CallbackFunc a) : m_shutdown(false), m_callback(a) { m_mutex.lock(); }
-        std::mutex m_mutex;
+        SharedData() : m_shutdown(false) { m_deferMutex.lock(); }
         std::atomic<bool> m_shutdown;
-        std::atomic<CallbackFunc> m_callback;
+        std::mutex m_deferMutex, m_emitMutex;
     };
 
 public:
@@ -36,8 +34,6 @@ private slots:
 private:
     void newDataInternal(const QByteArray &a);
 
-    static void newDataFunc(StdinReader *a_key, const QByteArray &a);
-    static void stubFunc(StdinReader *a_key, const QByteArray &a);
     static void workerFunc(std::shared_ptr<SharedData> a_sd, StdinReader *a_key);
 
     std::shared_ptr<SharedData> m_sd;
